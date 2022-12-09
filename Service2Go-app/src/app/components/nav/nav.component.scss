@@ -3,7 +3,7 @@
 .navbar {
     background: linear-gradient(to left top, var(--secondary-color), var(--primary-color));
 
-    .test {
+    .title-div {
         height: 140px;
         display: flex;
         align-items: center;
@@ -26,8 +26,5 @@
     }
     #logout {
         color: var(--color-text);
-    }
-    .testBtn {
-        @include sizeBtn();
     }
 }
