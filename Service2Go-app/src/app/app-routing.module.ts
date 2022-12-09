@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
+import { SearchComponent } from './components/search/search.component';
 import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
       { path: '', component: LoginComponent }
     ]
   },
+  { path: 'search', component: SearchComponent },
 ];
 
 @NgModule({
