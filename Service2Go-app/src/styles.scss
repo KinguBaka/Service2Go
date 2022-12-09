@@ -2,3 +2,11 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '../node_modules/bootstrap/scss/bootstrap';
+
+:root {
+    --color-text : black;
+    --color-text-secondary : white;
+    --primary-color : #00B4F5;
+    --secondary-color : #E7EB90;
+
+}
