@@ -9,29 +9,13 @@
 
 }
 
-
-.motdepasse{
-    position: absolute
+// on donne une classe boutton a tous les bouttons de la page login
+@mixin  login-button{
     width:277px;
     height: 60px;
-    top: 525px;
-    left: 66px;
+
 }
 
 
-.connexion{
 
-    position: absolute
-    width:277px;
-    height: 60px;
-    top: 602px;
-    left:66px;
 
-}
-.inscription{
-    position: absolute
-    width:277px;
-    height: 60px;
-    top: 706px;
-    left: 66px;
-}
