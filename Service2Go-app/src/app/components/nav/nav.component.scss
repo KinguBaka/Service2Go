@@ -1,4 +1,4 @@
-
+@import "../../../styles.scss";
 
 .navbar {
     background: linear-gradient(to left top, var(--secondary-color), var(--primary-color));
@@ -26,5 +26,8 @@
     }
     #logout {
         color: var(--color-text);
+    }
+    .testBtn {
+        @include sizeBtn();
     }
 }
