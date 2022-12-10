@@ -1,0 +1,39 @@
+.moment-service {
+    h2 {
+        text-align: center;
+
+    }
+
+    .carousel {
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+
+        .item1 {
+            margin: 20px 10px;
+            background-color: var(--primary-color);
+            width: 139px;
+            height: 139px;
+
+            h3 {
+                font-size: 16px;
+                padding: 115px 0px 0px 10px;
+                color: var(--color-text-secondary);
+            }
+        }
+
+        .item2{
+            margin: 20px 10px;
+            background-color: var(--secondary-color);
+            width: 139px;
+            height: 139px;
+
+            h3 {
+                font-size: 16px;
+                padding: 115px 0px 0px 10px;
+                color: var(--color-text);
+            }
+        }
+    }
+
+}
