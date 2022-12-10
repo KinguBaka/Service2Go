@@ -1,0 +1,17 @@
+@import "../../../styles.scss";
+
+.search {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+
+    label {
+        font-weight: 500;
+    }
+
+    input {
+        @include input;
+    }
+}

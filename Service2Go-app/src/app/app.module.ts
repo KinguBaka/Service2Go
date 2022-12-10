@@ -7,13 +7,15 @@ import { NavComponent } from './components/nav/nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './components/login/login.component';
 import { SearchComponent } from './components/search/search.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     LoginComponent,
-    SearchComponent
+    SearchComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
