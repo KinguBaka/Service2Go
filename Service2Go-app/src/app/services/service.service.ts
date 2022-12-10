@@ -41,8 +41,13 @@ export class ServiceService {
 
   }
 
+  // GET all services
+  getServices(): Observable<Service[]> {
+    return this.http.get<Service[]>(this.serviceUrl);
+  }
+
   // POST one service
-  addUser(service:Service):Observable<Service> {
+  addService(service:Service):Observable<Service> {
     return this.http.post<Service>(this.serviceUrl, service, this.httpOptions);
   }
 }
