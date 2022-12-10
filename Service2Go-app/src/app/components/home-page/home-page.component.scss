@@ -36,8 +36,17 @@
         }
     }
 
-    .bi {
-        color: black;
+    .icon-add {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+
+        .bi {
+            font-size: 45px;
+            color: var(--primary-color);
+        }
     }
 
 }
