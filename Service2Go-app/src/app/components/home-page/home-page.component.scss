@@ -1,4 +1,14 @@
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+
 .moment-service {
+    min-height:100%;
+    position:relative;
+
     h2 {
         text-align: center;
 
@@ -37,9 +47,10 @@
     }
 
     .icon-add {
+        position:absolute;
+        top:55vh;
         width: 100%;
-        position: absolute;
-        bottom: 0;
+        height: 60px;
         display: flex;
         justify-content: center;
 
