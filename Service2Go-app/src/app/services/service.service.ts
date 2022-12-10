@@ -1,4 +1,6 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Service } from '../class/service';
 
 const initialService: Service[] = [
@@ -29,5 +31,18 @@ const initialService: Service[] = [
 })
 export class ServiceService {
 
-  constructor() { }
+  private serviceUrl = 'api/services'; // API URL
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
+  constructor( private http:HttpClient ) {
+
+  }
+
+  // POST one service
+  addUser(service:Service):Observable<Service> {
+    return this.http.post<Service>(this.serviceUrl, service, this.httpOptions);
+  }
 }
