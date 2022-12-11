@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { User } from '../class/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { catchError, tap, map } from 'rxjs/operators';
 
-const innitialUser: User[] = [
-  new User("Tarik A","tarik@tarik.fr", "azerty01", false),
-  new User("Marti" , "marti@marti.fr", "azerty01", false),
-  new User("Admin", "admin@admin.fr", "azerty01", true)
-]
+// const innitialUser: User[] = [
+//   new User("Tarik A","tarik@tarik.fr", "azerty01", false),
+//   new User("Marti" , "marti@marti.fr", "azerty01", false),
+//   new User("Admin", "admin@admin.fr", "azerty01", true)
+// ]
 
 @Injectable({
   providedIn: 'root'
@@ -24,9 +25,18 @@ export class UserService {
   }
 
   // GET one user by his id
-  getUser(id: number):Observable<User> {
+  getUser(id : number): Observable<User[]> {
     const url = `${this.userUrl}/${id}`;
-    return this.http.get<User>(url);
+    return this.http.get<User[]>(url).pipe(
+      tap(users => console.log("appel ok")),
+      map(users =>  {
+        return users;
+      }),
+      catchError( error => {
+        console.error("Erreur sur l'appel getServices", error);
+        return [];
+      })
+    )
   }
 
   // POST one user
