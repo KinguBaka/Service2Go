@@ -38,9 +38,11 @@
         button {
             @include btn;
             width: 80%;
-            margin: auto;
+            font-size: 25px;
+            font-weight: bold;
+            color: var(--color-text-secondary);
+            margin-left: 10%;
         }
-
     }
 }
 
