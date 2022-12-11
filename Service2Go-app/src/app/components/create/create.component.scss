@@ -1,0 +1,40 @@
+@import "../../../styles.scss";
+
+.create {
+    text-align: center;
+
+    > div {
+        margin: 29px 0px;
+        width: 100%;
+    }
+
+    .textarea {
+        display: flex;
+        align-items: center;
+    }
+
+    textarea {
+        width: 65%;
+        min-height: 100px;
+        border: solid 1px var(--primary-color);
+    }
+
+    .bi {
+        color: var(--primary-color);
+        -webkit-text-stroke: 1px;
+        font-size: 30px;
+        margin: 0% 5%;
+    }
+
+    input {
+        @include input;
+        margin: 15px auto;
+    }
+
+    button {
+        @include btn;
+        width: 70%;
+        color: var(--color-text-secondary);
+        margin: 10% 0%;
+    }
+}
