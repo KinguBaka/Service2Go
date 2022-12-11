@@ -9,7 +9,7 @@
                         <i class="bi bi-arrow-up"></i> {{item.value}}
                     </h4>
                     <div *ngIf="item.key == 'description'" class="collapse" id="card{{ service.id }}">
-                        {{item.value}}
+                        <p>{{item.value}}</p>
                     </div>
                 </div>
                 <div *ngFor="let item of service.requestService| keyvalue" class="request">
@@ -17,7 +17,7 @@
                         <i class="bi bi-arrow-down"></i> {{item.value}}
                     </h4>
                     <div *ngIf="item.key == 'description'" class="collapse" id="card{{ service.id }}">
-                        {{item.value}}
+                        <p>{{item.value}}</p>
                     </div>
                 </div>
                 <div class="collapse" id="card{{service.id}}">
