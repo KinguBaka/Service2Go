@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../class/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { catchError, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 const innitialUser: User[] = [
   new User("Tarik A","tarik@tarik.fr", "azerty01", false),
