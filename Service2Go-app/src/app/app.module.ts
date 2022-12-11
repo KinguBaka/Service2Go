@@ -13,6 +13,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { ResultComponent } from './components/result/result.component';
 import { ServiceComponent } from './components/service/service.component';
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { CreateComponent } from './components/create/create.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     SearchComponent,
     HomePageComponent,
     ResultComponent,
-    ServiceComponent
+    ServiceComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
