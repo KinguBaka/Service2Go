@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Service } from '../class/service';
 import { catchError, tap, map } from 'rxjs/operators';
-import { offset } from '@popperjs/core';
 
 // const initialService: Service[] = [
 //   new Service(0,
