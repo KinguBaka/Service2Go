@@ -4,6 +4,7 @@ export const SERVICES: Service[] = [
     {
         id : 0,
         idUser : 0,
+        usernameUser: "Tarik A",
         requestService : {
             categorie: "Plomberie",
             description: "Lorem ipsum dolor"
@@ -17,6 +18,7 @@ export const SERVICES: Service[] = [
     {
         id : 1,
         idUser : 1,
+        usernameUser: "Marti",
         requestService : {
             categorie: "Plomberie",
             description: "Lorem ipsum dolor"
@@ -30,6 +32,7 @@ export const SERVICES: Service[] = [
     {
         id : 2,
         idUser : 2,
+        usernameUser: "Admin",
         requestService : {
             categorie: "Plomberie",
             description: "Lorem ipsum dolor"
