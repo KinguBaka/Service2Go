@@ -21,4 +21,8 @@ export class ServiceComponent implements OnInit {
       .subscribe(services => this.services = services);
   }
 
+  trackById(index:number, item:any) {
+    return item.id;
+  }
+
 }

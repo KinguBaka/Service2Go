@@ -1,3 +1,46 @@
-ul {
-    list-style: none;
+@import "../../../styles.scss";
+
+.listOfService {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ul {
+        list-style: none;
+    }
+
+    .card {
+        border: 1px solid var(--primary-color);
+        border-radius: 14px;
+        width: 80%;
+        margin: 19px;
+        padding: 5px;
+
+
+        .bi-star {
+          font-size: 25px;
+          margin: 0px 8px;
+          position: absolute;
+          top: 0px;
+          right: 0px;
+        }
+
+        .bi {
+          color: var(--primary-color);
+          -webkit-text-stroke: 1px;
+        }
+
+        .given, .request {
+            margin-bottom: 15px;
+        }
+
+        button {
+            @include btn;
+            width: 80%;
+            margin: auto;
+        }
+
+    }
 }
+

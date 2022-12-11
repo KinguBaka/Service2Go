@@ -22,3 +22,10 @@
     border-color: var(--primary-color);
     border-radius: 20px;
 }
+
+@mixin btn {
+    height: 60px;
+    background: linear-gradient(var(--secondary-color), var(--primary-color));
+    border-radius: 20px ;
+    border: none;
+}

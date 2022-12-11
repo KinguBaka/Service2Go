@@ -1,25 +1,28 @@
-<div *ngFor="let service of services">
-    <div class="card" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        <h1>test</h1>
-        <div class="card-body">
-            <div *ngFor="let item of service.givenService| keyvalue">
-                <h2 *ngIf="item.key == 'categorie'">
-                    {{item.value}}
-                </h2>
-                <div *ngIf="item.key == 'description'" class="collapse" id="collapseExample">
-                    {{item.value}}
+<div *ngFor="let service of services; trackBy: trackById" class="listOfService">
+    <div class="card">
+        <i class="bi bi-star"></i>
+        <div data-bs-toggle="collapse" [attr.href]="'#card' + service.id" aria-expanded="false" aria-controls="collapseExample">
+            <h3>{{service.usernameUser}} - {{service.createAt | date:"shortDate" }} </h3>
+            <div class="card-body">
+                <div *ngFor="let item of service.givenService| keyvalue" class="given">
+                    <h4 *ngIf="item.key == 'categorie'">
+                        <i class="bi bi-arrow-up"></i> {{item.value}}
+                    </h4>
+                    <div *ngIf="item.key == 'description'" class="collapse" id="card{{ service.id }}">
+                        {{item.value}}
+                    </div>
                 </div>
-            </div>
-            <div *ngFor="let item of service.requestService| keyvalue">
-                <h2 *ngIf="item.key == 'categorie'">
-                    {{item.value}}
-                </h2>
-                <div *ngIf="item.key == 'description'" class="collapse" id="collapseExample">
-                    {{item.value}}
+                <div *ngFor="let item of service.requestService| keyvalue" class="request">
+                    <h4 *ngIf="item.key == 'categorie'">
+                        <i class="bi bi-arrow-down"></i> {{item.value}}
+                    </h4>
+                    <div *ngIf="item.key == 'description'" class="collapse" id="card{{ service.id }}">
+                        {{item.value}}
+                    </div>
                 </div>
-            </div>
-            <div class="collapse" id="collapseExample">
-                <button>test</button>
+                <div class="collapse" id="card{{service.id}}">
+                    <button>test</button>
+                </div>
             </div>
         </div>
     </div>
