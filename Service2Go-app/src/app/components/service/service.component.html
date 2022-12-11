@@ -1,5 +1,26 @@
-<ul *ngFor="let service of services">
-    <li>
-        <h1>{{ service.id}}</h1>
-    </li>
-</ul>
+<div *ngFor="let service of services">
+    <div class="card" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <h1>test</h1>
+        <div class="card-body">
+            <div *ngFor="let item of service.givenService| keyvalue">
+                <h2 *ngIf="item.key == 'categorie'">
+                    {{item.value}}
+                </h2>
+                <div *ngIf="item.key == 'description'" class="collapse" id="collapseExample">
+                    {{item.value}}
+                </div>
+            </div>
+            <div *ngFor="let item of service.requestService| keyvalue">
+                <h2 *ngIf="item.key == 'categorie'">
+                    {{item.value}}
+                </h2>
+                <div *ngIf="item.key == 'description'" class="collapse" id="collapseExample">
+                    {{item.value}}
+                </div>
+            </div>
+            <div class="collapse" id="collapseExample">
+                <button>test</button>
+            </div>
+        </div>
+    </div>
+</div>

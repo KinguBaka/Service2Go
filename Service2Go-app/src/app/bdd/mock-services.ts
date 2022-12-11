@@ -6,12 +6,12 @@ export const SERVICES: Service[] = [
         idUser : 0,
         usernameUser: "Tarik A",
         requestService : {
-            categorie: "Plomberie",
-            description: "Lorem ipsum dolor"
+            categorie: "Informatique",
+            description: "Lorem ipsum dolor Informatique"
         },
         givenService : {
             categorie: "Plomberie",
-            description: "Lorem ipsum dolor"
+            description: "Lorem ipsum dolor Plomberie"
         },
         createAt : Date()
     },
@@ -20,12 +20,12 @@ export const SERVICES: Service[] = [
         idUser : 1,
         usernameUser: "Marti",
         requestService : {
-            categorie: "Plomberie",
-            description: "Lorem ipsum dolor"
+            categorie: "Informatique",
+            description: "Lorem ipsum dolor Informatique"
         },
         givenService : {
             categorie: "Plomberie",
-            description: "Lorem ipsum dolor"
+            description: "Lorem ipsum dolor Plomberie"
         },
         createAt : Date()
     },
@@ -34,12 +34,12 @@ export const SERVICES: Service[] = [
         idUser : 2,
         usernameUser: "Admin",
         requestService : {
-            categorie: "Plomberie",
-            description: "Lorem ipsum dolor"
+            categorie: "Informatique",
+            description: "Lorem ipsum dolor Informatique"
         },
         givenService : {
             categorie: "Plomberie",
-            description: "Lorem ipsum dolor"
+            description: "Lorem ipsum dolor Plomberie"
         },
         createAt : Date()
     },
