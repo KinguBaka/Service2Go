@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Service } from 'src/app/class/service';
@@ -9,7 +10,7 @@ import { ServiceService } from 'src/app/services/service.service';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  service?: Service[];
+  service?: Service;
 
   constructor(private serviceService: ServiceService,
     private route : ActivatedRoute) {}

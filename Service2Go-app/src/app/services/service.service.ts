@@ -55,9 +55,9 @@ export class ServiceService {
   }
 
   // GET one service by his id
-  getService(id : number): Observable<Service[]> {
+  getService(id : number): Observable<Service> {
     const url = `${this.serviceUrl}/${id}`;
-    return this.http.get<Service[]>(url).pipe(
+    return this.http.get<Service>(url).pipe(
       tap(service => console.log("appel ok")),
       map(service =>  {
         return service;
