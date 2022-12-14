@@ -41,7 +41,16 @@ export class UserService {
 
   // POST one user
   addUser(user:User):Observable<User> {
-    return this.http.post<User>(this.userUrl, user, this.httpOptions);
+    return this.http.post<User>(this.userUrl, user, this.httpOptions).pipe(
+      tap(user => console.log("user creer")),
+      map(user => {
+        return user;
+      }),
+      catchError( error => {
+        console.error("Erreur sur l'appel getServices", error);
+        return [];
+      })
+    )
   }
 
   //PUT one user
