@@ -1,1 +1,22 @@
-<p>signup works!</p>
+<form [formGroup]="userForm" >
+    <div class="formGroup">
+        <label class="form-label" for="username"><i class="bi bi-person"></i></label>
+        <input class="form-control" type="text" formControlName="username">
+    </div>
+
+    <div class="formGroup">
+        <label class="form-label" for="email"><i class="bi bi-envelope-at"></i> </label>
+        <input class="form-control" type="email" formControlName="email">
+    </div>
+
+    <div class="formGroup">
+        <label class="form-label" for="password"><i class="bi bi-lock"></i> </label>
+        <input class="form-control" type="password" formControlName="password">
+    </div>
+
+    <div class="formGroup">
+        <label class="form-label" for="password2"><i class="bi bi-lock"></i> </label>
+        <input class="form-control" type="password" formControlName="password2">
+    </div>
+    <button type="submit" [disabled]="!userForm.valid" >Inscription</button>
+</form>
