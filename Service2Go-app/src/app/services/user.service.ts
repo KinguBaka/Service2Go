@@ -14,7 +14,7 @@ import { catchError, tap, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserService {
-  private userUrl = 'api/heroes'; // API URL
+  private userUrl = 'api/users'; // API URL
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -25,12 +25,12 @@ export class UserService {
   }
 
   // GET one user by his id
-  getUser(id : number): Observable<User[]> {
+  getUser(id : number): Observable<User> {
     const url = `${this.userUrl}/${id}`;
-    return this.http.get<User[]>(url).pipe(
-      tap(users => console.log("appel ok")),
-      map(users =>  {
-        return users;
+    return this.http.get<User>(url).pipe(
+      tap(user => console.log("appel ok")),
+      map(user =>  {
+        return user;
       }),
       catchError( error => {
         console.error("Erreur sur l'appel getServices", error);
