@@ -15,6 +15,7 @@ import { ServiceComponent } from './components/service/service.component';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { CreateComponent } from './components/create/create.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ContactComponent } from './components/contact/contact.component';
     ResultComponent,
     ServiceComponent,
     CreateComponent,
-    ContactComponent
+    ContactComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
