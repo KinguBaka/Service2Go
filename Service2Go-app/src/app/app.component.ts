@@ -15,7 +15,7 @@ export class AppComponent {
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.isOnSpecificPage = event.url === '/signup' || event.url === '/';
+        this.isOnSpecificPage = event.url === '/signup' || event.url === '/login' || event.url === '/';
       }
     });
   }
