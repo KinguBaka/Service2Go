@@ -13,15 +13,15 @@ const routes: Routes = [
     path: '',
     canActivate: [AuthGuard],
     children: [
-      { path: '', component: LoginComponent }
+      { path: '', component: LoginComponent },
+      { path: 'signup', component: SignupComponent },
+      { path: 'home', component: HomePageComponent },
+      { path: 'result', component: ResultComponent },
+      { path: 'create', component: CreateComponent },
+      { path: 'contact/:id', component: ContactComponent },
     ]
   },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'home', component: HomePageComponent },
-  { path: 'result', component: ResultComponent },
-  { path: 'create', component: CreateComponent },
-  { path: 'contact/:id', component: ContactComponent },
 ];
 
 @NgModule({

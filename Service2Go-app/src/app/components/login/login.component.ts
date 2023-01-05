@@ -57,7 +57,7 @@ export class LoginComponent {
       if (passwordMatching === true) {
         console.log('connexion');
         this.inMememoryDataService.saveData('id', userConnected.id);
-        this.router.navigate(['home']);
+        this.authService.login()
       } else {
         this.errorMessage = 'Mot de passe incorrect ! ';
       }
