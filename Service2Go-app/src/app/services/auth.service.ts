@@ -13,17 +13,12 @@ export class AuthService {
   }
 
   encrypPassword(password: any): any {
-    const encryptedPassword = CryptoJS.AES.encrypt(password, environment.secretKey);
-    return encryptedPassword;
-  }
-
-  decryptPasswrod(encryptPassword: any): string {
-    const bytes = CryptoJS.AES.decrypt(
-      encryptPassword.toString(),
+    const encryptedPassword = CryptoJS.HmacSHA256(
+      password,
       environment.secretKey
     );
-    const decryptedPassword = bytes.toString(CryptoJS.enc.Utf8);
-    return decryptedPassword;
+    const hashString = encryptedPassword.toString(CryptoJS.enc.Base64);
+    return hashString;
   }
 
   login() {
@@ -33,6 +28,6 @@ export class AuthService {
 
   logout() {
     this.isAuth = false;
-    this.router.navigate(['']);
+    this.router.navigate(['login']);
   }
 }

@@ -7,6 +7,7 @@
   </div>
 
   <div class="formGroup">
+    <p class="error"> {{ errorMessage }} </p>
     <label class="form-label" for="email"><i class="bi bi-envelope-at"></i> </label>
     <input class="form-control" type="email" formControlName="email" placeholder="E-mail">
     <div *ngIf="email.dirty && email.hasError('required') ">
@@ -26,6 +27,6 @@
     </div>
   </div>
 
-  <button type="submit" [disabled]="!userForm.valid" (click)="onSubmit()">Connexion</button>
+  <button type="submit" [disabled]="!userForm.valid" (click)="onSubmit(userForm)">Connexion</button>
   <button [routerLink]="['/signup']">Inscription</button>
 </form>
