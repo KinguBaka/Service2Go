@@ -4,17 +4,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
-// const innitialUser: User[] = [
-//   new User("Tarik A","tarik@tarik.fr", "azerty01", false),
-//   new User("Marti" , "marti@marti.fr", "azerty01", false),
-//   new User("Admin", "admin@admin.fr", "azerty01", true)
-// ]
+const innitialUser: User[] = [
+  new User("Tarik A","tarik@tarik.fr", "azerty01"),
+  new User("Marti" , "marti@marti.fr", "azerty01"),
+  new User("Admin", "admin@admin.fr", "azerty01")
+]
+
+const url = "https://service2go-4dc96-default-rtdb.europe-west1.firebasedatabase.app"
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private userUrl = 'api/heroes'; // API URL
+  private userUrl = 'api/users'; // API URL
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,6 +25,11 @@ export class UserService {
   constructor( private http:HttpClient ) {
 
   }
+
+  save(): void {
+    this.http.put(url + '/user.json', innitialUser).subscribe();
+  }
+
 
   // GET one user by his id
   getUser(id : number): Observable<User[]> {

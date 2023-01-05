@@ -36,9 +36,9 @@ import { SignupComponent } from './components/signup/signup.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: false }
+    // ),
     ReactiveFormsModule
   ],
   providers: [],

@@ -57,4 +57,9 @@ export class SignupComponent {
   onSubmit():void {
     this.addUser();
   }
+
+  test():void {
+    console.log("test")
+    this.userService.save()
+  }
 }
