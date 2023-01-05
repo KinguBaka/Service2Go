@@ -17,6 +17,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 import { CreateComponent } from './components/create/create.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SignupComponent } from './components/signup/signup.component';
     ServiceComponent,
     CreateComponent,
     ContactComponent,
-    SignupComponent
+    SignupComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
