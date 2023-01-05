@@ -1,48 +1,48 @@
 <form [formGroup]="userForm" >
 
   <div class="icone">
-    <img src="../../../assets/icones/SVG/logo2.svg" alt="" class="logo">
-    <img src="../../../assets/icones/SVG/typo.svg" alt="" class="title">
+    <img src="../../../assets/icones/SVG/logo_v3.svg" alt="" class="logo">
+    <img src="../../../assets/icones/SVG/typo_v3.svg" alt="" class="title">
   </div>
 
+  <div class="formGroup">
+      <label class="form-label" for="username"><i class="bi bi-person"></i></label>
+      <input class="form-control" type="text" formControlName="username" placeholder="Nom, Prenom">
+      <div *ngIf="username.dirty && username.hasError('required') ">
+          <p class="error"> Ce champs est obligatoire !</p>
+      </div>
+  </div>
+
+  <div class="formGroup">
+      <label class="form-label" for="email"><i class="bi bi-envelope-at"></i> </label>
+      <input class="form-control" type="email" formControlName="email" placeholder="E-mail">
+      <div *ngIf="email.dirty && email.hasError('required') ">
+          <p class="error"> Ce champs est obligatoire !</p>
+      </div>
+      <div *ngIf="email.dirty && email.hasError('email') ">
+          <p class="error"> Ce champs doit être un email valide !</p>
+      </div>
+  </div>
+
+  <div formGroupName="passwordForm">
     <div class="formGroup">
-        <label class="form-label" for="username"><i class="bi bi-person"></i></label>
-        <input class="form-control" type="text" formControlName="username" placeholder="Nom, Prenom">
-        <div *ngIf="username.dirty && username.hasError('required') ">
+        <label class="form-label" for="password"><i class="bi bi-lock"></i> </label>
+        <input class="form-control" type="password" formControlName="password" placeholder="Mot de passe">
+        <div *ngIf="password.dirty && password.hasError('required') ">
             <p class="error"> Ce champs est obligatoire !</p>
         </div>
     </div>
 
     <div class="formGroup">
-        <label class="form-label" for="email"><i class="bi bi-envelope-at"></i> </label>
-        <input class="form-control" type="email" formControlName="email" placeholder="E-mail">
-        <div *ngIf="email.dirty && email.hasError('required') ">
+        <label class="form-label" for="password2"><i class="bi bi-lock"></i> </label>
+        <input class="form-control" type="password" formControlName="password2" placeholder="Confirmer le mot de passe">
+        <div *ngIf="password2.dirty && password2.hasError('required') ">
             <p class="error"> Ce champs est obligatoire !</p>
         </div>
-        <div *ngIf="email.dirty && email.hasError('email') ">
-            <p class="error"> Ce champs doit être un email valide !</p>
+        <div *ngIf="passwordForm.dirty && passwordForm.hasError('matchingError')">
+            <p class="error"> Les mots de passe ne sont pas similaire !</p>
         </div>
     </div>
-
-    <div formGroupName="passwordForm">
-      <div class="formGroup">
-          <label class="form-label" for="password"><i class="bi bi-lock"></i> </label>
-          <input class="form-control" type="password" formControlName="password" placeholder="Mot de passe">
-          <div *ngIf="password.dirty && password.hasError('required') ">
-              <p class="error"> Ce champs est obligatoire !</p>
-          </div>
-      </div>
-
-      <div class="formGroup">
-          <label class="form-label" for="password2"><i class="bi bi-lock"></i> </label>
-          <input class="form-control" type="password" formControlName="password2" placeholder="Confirmer le mot de passe">
-          <div *ngIf="password2.dirty && password2.hasError('required') ">
-              <p class="error"> Ce champs est obligatoire !</p>
-          </div>
-          <div *ngIf="passwordForm.dirty && passwordForm.hasError('matchingError')">
-              <p class="error"> Les mots de passe ne sont pas similaire !</p>
-          </div>
-      </div>
-    </div>
-    <button type="submit" [disabled]="!userForm.valid" (click)="onSubmit()">Inscription</button>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid" (click)="onSubmit()">Inscription</button>
 </form>
