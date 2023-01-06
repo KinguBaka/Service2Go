@@ -4,6 +4,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { CreateComponent } from './components/create/create.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { LoginComponent } from './components/login/login.component';
+import { MyProfilComponent } from './components/my-profil/my-profil.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ResultComponent } from './components/result/result.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -15,12 +16,13 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', component: LoginComponent },
-      { path: 'home', component: HomePageComponent },
-      { path: 'result', component: ResultComponent },
-      { path: 'create', component: CreateComponent },
-      { path: 'contact/:id', component: ContactComponent },
     ],
   },
+  { path: 'home', component: HomePageComponent },
+  { path: 'result', component: ResultComponent },
+  { path: 'create', component: CreateComponent },
+  { path: 'contact/:id', component: ContactComponent },
+  { path: 'myprofil', component: MyProfilComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: '404', component: NotFoundComponent },

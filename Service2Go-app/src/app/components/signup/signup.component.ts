@@ -47,7 +47,7 @@ export class SignupComponent {
       },
       {
         validators: [SignupComponent.passwordMatch],
-        updateOn: 'blur',
+        updateOn: 'change',
       }
     );
 

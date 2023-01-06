@@ -19,7 +19,7 @@ export class InMemoryDataService {
     localStorage.setItem(key, value);
   }
 
-  public getData(key: string) {
+  public getData(key: string):any {
     return localStorage.getItem(key);
   }
   public removeData(key: string) {
