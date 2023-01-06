@@ -57,6 +57,7 @@ export class LoginComponent {
       if (passwordMatching === true) {
         console.log('connexion');
         this.inMememoryDataService.saveData('id', userConnected.id);
+        this.inMememoryDataService.saveData('username', userConnected.username);
         this.authService.login()
       } else {
         this.errorMessage = 'Mot de passe incorrect ! ';

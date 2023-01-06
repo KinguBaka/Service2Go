@@ -4,23 +4,32 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
+import { InMemoryDataService } from './in-memory-data.service';
 
 const innitialUser: User[] = [
-  new User(
-    'Tarik A',
-    'tarik@tarik.fr',
-    '4FSLhNVsosCMw20e7PEDKk9/LDuE5Mt8jkZWxkiJ/6A='
-  ),
-  new User(
-    'Marti',
-    'marti@marti.fr',
-    '4FSLhNVsosCMw20e7PEDKk9/LDuE5Mt8jkZWxkiJ/6A='
-  ),
-  new User(
-    'Admin',
-    'admin@admin.fr',
-    '4FSLhNVsosCMw20e7PEDKk9/LDuE5Mt8jkZWxkiJ/6A='
-  ),
+
+  {
+    "id" : 0,
+    "username" : 'Tarik',
+    "email" :'tarik@tarik.fr',
+    "password" : '4FSLhNVsosCMw20e7PEDKk9/LDuE5Mt8jkZWxkiJ/6A=',
+    "isAdmin" : false
+  }
+  ,
+  {
+    "id" : 1,
+    "username" : 'Marti',
+    "email" :'marti@marti.fr',
+    "password" : '4FSLhNVsosCMw20e7PEDKk9/LDuE5Mt8jkZWxkiJ/6A=',
+    "isAdmin" : false
+  }
+  ,{
+    "id" : 2,
+    "username" : 'Admin',
+    "email" :'admin@admin.fr',
+    "password" : '4FSLhNVsosCMw20e7PEDKk9/LDuE5Mt8jkZWxkiJ/6A=',
+    "isAdmin" : true
+  }
 ];
 
 const url = "https://service2go-4dc96-default-rtdb.europe-west1.firebasedatabase.app"
@@ -35,10 +44,10 @@ export class UserService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService : AuthService, private inMemoryDataService : InMemoryDataService) {}
 
-  save(): void {
-    this.http.put(url + '/user.json', innitialUser).subscribe();
+  save(listOfUser: User[]): void {
+    this.http.put(url + '/user.json', listOfUser).subscribe();
   }
 
   // GET all services
@@ -96,17 +105,30 @@ export class UserService {
   }
 
   // POST one user
-  addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.userUrl, user, this.httpOptions).pipe(
-      tap((user) => console.log('user creer')),
-      map((user) => {
-        return user;
-      }),
-      catchError((error) => {
-        console.error("Erreur sur l'appel getServices", error);
-        return [];
-      })
-    );
+  addUser(user : any): void {
+    this.http
+      .get<User[]>(url + '/user.json')
+      .pipe(
+        tap((users) => console.log('appel ok')),
+        map((users) => {
+          if (!users || users.length == 0) {
+            users = [];
+          }
+          let newUser = new User(
+            this.checkId(users),
+            user.username,
+            user.email,
+            this.authService.encrypPassword(user.passwordForm.password)
+          );
+          users.push(newUser);
+          this.save(users);
+        }),
+        catchError((error) => {
+          console.error("Erreur sur l'appel addUser", error);
+          return [];
+        })
+      )
+      .subscribe();
   }
 
   //PUT one user
@@ -114,11 +136,22 @@ export class UserService {
     return this.http.put(this.userUrl, user, this.httpOptions);
   }
 
+  // Check for givin last id
   checkId(array: Array<any>): number {
     if (array.length > 0) {
       return Math.max(...array.map((user) => user.id)) + 1;
     } else {
       return 0;
     }
+  }
+
+  // Check email is unique
+  checkEmailUniqueness(email: string, users: Array<User>): boolean {
+    for (let user of users) {
+      if (user.email == email) {
+        return true;
+      }
+    }
+    return false;
   }
 }

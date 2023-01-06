@@ -15,7 +15,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', component: LoginComponent },
-      { path: 'signup', component: SignupComponent },
       { path: 'home', component: HomePageComponent },
       { path: 'result', component: ResultComponent },
       { path: 'create', component: CreateComponent },
@@ -23,6 +22,7 @@ const routes: Routes = [
     ],
   },
   { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '404' },
 ];

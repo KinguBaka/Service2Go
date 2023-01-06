@@ -102,7 +102,7 @@ export class ServiceService {
     );
   }
 
-  // TODO POST one service
+  // POST one service
   addService(service: any): void {
     this.http.get<Service[]>(url + '/service.json').pipe(
       tap((services) => console.log('appel ok')),
@@ -128,7 +128,7 @@ export class ServiceService {
         this.save(services);
       }),
       catchError((error) => {
-        console.error("Erreur sur l'appel getServices", error);
+        console.error("Erreur sur l'appel addServices", error);
         return [];
       })
     ).subscribe();

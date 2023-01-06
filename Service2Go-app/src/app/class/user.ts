@@ -5,10 +5,9 @@ export class User {
     email:string;
     password:string;
     isAdmin:boolean;
-    private static index:number = 0;
 
-    constructor(username:string, email:string, password:string) {
-        this.id = User.index++;
+    constructor(id : number, username:string, email:string, password:string) {
+        this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
