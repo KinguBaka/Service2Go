@@ -6,10 +6,9 @@ export class Service {
     requestService: object;
     givenService: object;
     createAt:string
-    private static index:number = 0;
 
-    constructor(idUser:number,usernameUser: string, requestService:object, givenServices:object, ) {
-        this.id = Service.index++;
+    constructor(id:number, idUser:number,usernameUser: string, requestService:object, givenServices:object, ) {
+        this.id = id;
         this.idUser = idUser;
         this.usernameUser = usernameUser;
         this.requestService = requestService;

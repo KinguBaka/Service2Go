@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -17,6 +17,8 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 import { CreateComponent } from './components/create/create.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MyProfilComponent } from './components/my-profil/my-profil.component';
 
 @NgModule({
   declarations: [
@@ -29,17 +31,20 @@ import { SignupComponent } from './components/signup/signup.component';
     ServiceComponent,
     CreateComponent,
     ContactComponent,
-    SignupComponent
+    SignupComponent,
+    NotFoundComponent,
+    MyProfilComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
-    ReactiveFormsModule
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: false }
+    // ),
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

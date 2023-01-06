@@ -1,21 +1,44 @@
 <div class="create">
+  <form (ngSubmit)="onSubmit(serviceForm)" #serviceForm="ngForm">
+
     <div class="givenService">
       <label for="givenService" class="form-label">Quel service proposez-vous ? </label>
       <div class="textarea">
-            <i class="bi bi-arrow-up"></i><textarea type="text" class="form-control" id="givenService" placeholder="Decrivez le service ..."></textarea>
-        </div>
-        <input type="text" class="form-control" placeholder="bricolage, déménagement, informatique ...">
+        <i class="bi bi-arrow-up"></i><textarea type="text" class="form-control" id="givenService"
+          placeholder="Decrivez le service ..." name="givenServiceDescription" ngModel required></textarea>
+      </div>
+
+      <select class="form-select" name="givenServiceCategorie" aria-label="Selectionner le type de votre demande" ngModel required>
+        <option value="Animaux">Animaux</option>
+        <option value="Autre">Autre</option>Santé
+        <option value="Bricolage">Bricolage</option>
+        <option value="Santé">Santé</option>
+        <option value="Informatique">Informatique</option>
+        <option value="Scolarité">Scolarité</option>
+        <option value="Travaux manuel">Travaux manuel</option>
+        <option value="Mecanique">Mecanique</option>
+      </select>
     </div>
 
     <div class="requestService">
       <label for="requestService" class="form-label">De quel service avez-vous besoin ? </label>
       <div class="textarea">
-            <i class="bi bi-arrow-down"></i><textarea type="text" class="form-control" id="requestService"
-              placeholder="Decrivez le service ..."></textarea>
-        </div>
-        <input type="text" class="form-control" placeholder="bricolage, déménagement, informatique ...">
+        <i class="bi bi-arrow-down"></i><textarea type="text" class="form-control" id="requestService"
+          placeholder="Decrivez le service ..." name="requestServiceDescription" ngModel required></textarea>
+      </div>
+
+      <select class="form-select" name="requestServiceCategorie" aria-label="Selectionner le type de votre demande" ngModel required>
+        <option value="Animaux">Animaux</option>
+        <option value="Autre">Autre</option>Santé
+        <option value="Bricolage">Bricolage</option>
+        <option value="Santé">Santé</option>
+        <option value="Informatique">Informatique</option>
+        <option value="Scolarité">Scolarité</option>
+        <option value="Travaux manuel">Travaux manuel</option>
+        <option value="Mecanique">Mecanique</option>
+      </select>
     </div>
 
-    <button>Terminer</button>
-
+    <button type="submit" [disabled]="!serviceForm.valid">Terminer</button>
+  </form>
 </div>

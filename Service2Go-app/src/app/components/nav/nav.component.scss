@@ -8,9 +8,13 @@
     z-index: 10;
 
     .title-div {
-        height: 140px;
-        display: flex;
-        align-items: center;
+      height: 120px;
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 20px;
+      }
     }
 
     .title {

@@ -1,62 +1,85 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from 'src/app/class/user';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
-
   passwordForm: FormGroup;
   userForm: FormGroup;
   username: FormControl;
   email: FormControl;
   password: FormControl;
   password2: FormControl;
+  errorMessage: string;
 
   static passwordMatch(group: FormGroup) {
     const password = group.get('password')?.value;
     const password2 = group.get('password2')?.value;
-    return password === password2 ? null : {matchingError: true};
+    return password === password2 ? null : { matchingError: true };
   }
 
-  constructor(private fb: FormBuilder, public userService: UserService) {
-
+  constructor(
+    private fb: FormBuilder,
+    public userService: UserService,
+    public router: Router
+  ) {
     this.username = this.fb.control('', [Validators.required]);
     this.email = this.fb.control('', [Validators.required, Validators.email]);
-    this.password = this.fb.control('', [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)]);
-    this.password2 = this.fb.control('', [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)]);
+    this.password = this.fb.control('', [
+      Validators.required,
+      Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
+    ]);
+    this.password2 = this.fb.control('', [
+      Validators.required,
+      Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
+    ]);
 
-
-    this.passwordForm = this.fb.group({
-      password: this.password,
-      password2 : this.password2
-    }, {
-      validators: [SignupComponent.passwordMatch],
-      updateOn : 'blur'
-    });
+    this.passwordForm = this.fb.group(
+      {
+        password: this.password,
+        password2: this.password2,
+      },
+      {
+        validators: [SignupComponent.passwordMatch],
+        updateOn: 'change',
+      }
+    );
 
     this.userForm = this.fb.group({
       username: this.username,
       email: this.email,
-      passwordForm : this.passwordForm
+      passwordForm: this.passwordForm,
     });
 
+    this.errorMessage = '';
   }
 
-  addUser():void {
-    const user = new User (this.username.value, this.email.value, this.password.value);
-    this.userService.addUser(user);
-    console.log(user);
+  async onSubmit(userForm: FormGroup): Promise<void> {
+    console.log('test');
+    if (await this.checkEmailUniqueness(this.email)) {
+      this.errorMessage = 'email déja utilisé !';
+    } else {
+      this.userService.addUser(userForm.value);
+      this.router.navigate(['login']);
+    }
   }
 
-  onSubmit():void {
-    this.addUser();
-    let test = this.userService.getUser(0)
-    console.log(test);
+  async checkEmailUniqueness(control: FormControl) {
+    let email = control.value;
+    let users = await this.userService.getUsers().toPromise();
+
+    console.log(users);
+    if (users == null) {
+      return null;
+    } else {
+      console.log(this.userService.checkEmailUniqueness(email, users));
+      return this.userService.checkEmailUniqueness(email, users) ? true : false;
+    }
   }
 }

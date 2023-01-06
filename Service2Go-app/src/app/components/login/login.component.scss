@@ -1,20 +1,52 @@
-
 @import "../../../styles.scss";
 
-.email{
-    position: absolute;
-    width: 277px;
-    height: 60px;
-    top: 442px;
-    left: 66px;
-    border-radius: 20px;
+form {
+    text-align: center;
 
+  .icone {
+    width: 80%;
+    text-align: center;
+    margin: 45px auto;
 
-}
+    .logo {
+      height: 100px;
+      margin: 10px;
+    }
 
-// on donne une classe boutton a tous les bouttons de la page login
- login-button{
-    @include sizeBtn;
+    .title {
+      margin-top: 30px;
+    }
+  }
+
+  .formGroup {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+  }
+
+  .bi {
+      color: var(--primary-color);
+      font-size: 30px;
+    }
+
+    input {
+        height: 50px;
+        width: 70%;
+        border: 1px solid var(--primary-color);
+        border-radius: 20px;
+    }
+
+    button {
+        margin-top: 20px;
+        width: 250px;
+        @include btn;
+        color: var(--color-text-secondary);
+    }
+
+    .error {
+        color: red;
+    }
 }
 
 

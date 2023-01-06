@@ -27,7 +27,7 @@
         margin: 0% 5%;
     }
 
-    input {
+    input, select {
         @include input;
         margin: 15px auto;
     }
